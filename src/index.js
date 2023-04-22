@@ -18,13 +18,14 @@ function onInput(evt) {
   // const END_POINT = `/name/${name}`;
 
   fetchCountries(name)
-    // .then(data => (list.innerHTML = createMarkup(data.name)))
-    // .catch(err => console.log(err));
+    .then(data => (list.innerHTML = createMarkup(data.name)))
+    .catch(err => console.log(err));
+
 }
 
 
 
-  // function createMarkup(country){
-  //   return
-  //   `<li>$(country)</li>`;
-  // }
+  function createMarkup(params){
+    return
+    `<li>$(params)</li>`;
+  }
