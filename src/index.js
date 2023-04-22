@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { fetchCountries } from './fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
+const onInputDebounced = _.debounce(onInput, DEBOUNCE_DELAY);
 // Default JS ends
 
 //Input selector
@@ -11,11 +12,11 @@ const inputElement = document.querySelector('input#search-box');
 const list = document.querySelector('.country-list');
 
 //Event listener for the input
-inputElement.addEventListener('input', onInput);
+inputElement.addEventListener('input', onInputDebounced);
 
 function onInput(evt) {
   evt.preventDefault();
-  const name = evt.currentTarget.value.trim();
+  const name = evt.target.value.trim();
   debounce_fun();
 
   fetchCountries(name)
