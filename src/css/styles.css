@@ -28,6 +28,11 @@ li{
   margin-bottom: 70px;
 }
 
+.country-full-first-line{
+  display: flex;
+  align-items: center;
+}
+
 .country-short{
   display: flex;
   align-content: center;
@@ -36,7 +41,11 @@ li{
   margin-bottom: 20px;
 }
 
-.flag-small{
+.flag{
   width: 40px;
   margin-right: 10px;
+}
+
+.text-bold{
+  font-weight: 700;
 }

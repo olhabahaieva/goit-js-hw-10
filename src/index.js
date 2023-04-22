@@ -29,7 +29,7 @@ function createMarkup(data) {
     return data.map(
       ({ flags, name })=>
       `<li class="country-short">
-      <img class="flag-small "src="${flags.svg}" alt="${name.official}"/>
+      <img class="flag" src="${flags.svg}" alt="${name.official}"/>
       <p>${name.official}<p>
       </li>`
     
@@ -38,11 +38,13 @@ function createMarkup(data) {
     return data.map(
       ({ capital, flags, languages, name, population })=>
       `<li class="country-full">
+      <div class="country-full-first-line">
+      <img class="flag" src="${flags.svg}" alt="${name.official}"/>
       <h1>${name.official}</h1>
-      <p>${capital}</p>
-      <p>${population}</p>
-      <img src="${flags.svg}" alt="${name.official}" width="40px"/>
-      <p>${languages}</p>
+      </div>
+      <p><span class="text-bold">Capital:</span> ${capital}</p>
+      <p><span class="text-bold">Population:</span> ${population}</p>
+      <p><span class="text-bold">Languages:</span> ${languages}</p>
       </li>`
       ).join("");
     }
