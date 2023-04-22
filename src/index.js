@@ -43,6 +43,7 @@ function createMarkup(data) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
+    return '';
   } else if(data.length > 2 && data.length < 10 ){
     return data
     .map(
