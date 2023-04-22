@@ -26,17 +26,26 @@ function onInput(evt) {
 function createMarkup(data) {
   if (data.length > 10) {
     Notiflix.Notify.info("Too many matches found. Please enter a more specific name.");
-  }
-  return data.map(
-    ({ capital, flags, languages, name, population })=>
-    `<li>
-    <h1>${name.official}</h1>
-    <p>${capital}</p>
-    <p>${population}</p>
-    <img src="${flags.svg}" alt="${name.official}" width="40px"/>
-    <p>${languages}</p>
-    </li>`
-   
-  ).join("");
+    return data.map(
+      ({ flags, name })=>
+      `<li class="country-short">
+      <img class="flag-small "src="${flags.svg}" alt="${name.official}"/>
+      <p>${name.official}<p>
+      </li>`
+    
+    ).join("");
+  } else {
+    return data.map(
+      ({ capital, flags, languages, name, population })=>
+      `<li class="country-full">
+      <h1>${name.official}</h1>
+      <p>${capital}</p>
+      <p>${population}</p>
+      <img src="${flags.svg}" alt="${name.official}" width="40px"/>
+      <p>${languages}</p>
+      </li>`
+      ).join("");
+    }
+  
   
 }

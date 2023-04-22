@@ -21,6 +21,22 @@ body {
 
 li{
   list-style: none;
+}
+
+.country-full{
   height: 200px;
   margin-bottom: 70px;
+}
+
+.country-short{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.flag-small{
+  width: 40px;
+  margin-right: 10px;
 }
