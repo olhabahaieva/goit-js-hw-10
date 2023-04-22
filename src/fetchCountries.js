@@ -1,4 +1,3 @@
-import Notiflix from 'notiflix';
 // name.official - полное имя страны
 // capital - столица
 // population - население

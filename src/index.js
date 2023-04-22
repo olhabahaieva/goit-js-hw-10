@@ -1,4 +1,5 @@
 import './css/styles.css';
+import Notiflix from 'notiflix';
 import { fetchCountries } from './fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
@@ -18,7 +19,7 @@ function onInput(evt) {
 
   fetchCountries(name)
     .then(data => (list.innerHTML = createMarkup(data)))
-    .catch(err => console.log(err));
+    .catch(err => Notiflix.Notify.failure("Oops, there is no country with that name"));
   
 }
 
