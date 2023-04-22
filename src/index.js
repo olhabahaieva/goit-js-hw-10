@@ -43,16 +43,17 @@ function createMarkup(data) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
+  } else if(data.length > 2 && data.length < 10 ){
     return data
-      .map(
-        ({ flags, name }) =>
-          `<li class="country-short">
-      <img class="flag" src="${flags.svg}" alt="${name.official}"/>
-      <p>${name.official}<p>
-      </li>`
-      )
-      .join('');
-  } else {
+    .map(
+      ({ flags, name }) =>
+        `<li class="country-short">
+    <img class="flag" src="${flags.svg}" alt="${name.official}"/>
+    <p>${name.official}<p>
+    </li>`
+    )
+    .join('');
+  } else if (data.length === 1){
     return data
       .map(
         ({ capital, flags, languages, name, population }) =>
