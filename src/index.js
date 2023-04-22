@@ -19,7 +19,7 @@ function onInput(evt) {
   const name = evt.target.value.trim();
   debounce_fun();
 
-  if(name === ''){
+  if (name === '') {
     list.innerHTML = '';
     return;
   }
@@ -34,8 +34,8 @@ function onInput(evt) {
 // Using _.debounce() method with its parameters
 var debounce_fun = _.debounce(function () {
   // console.log('Function debounced after 1000ms!');
-  }, DEBOUNCE_DELAY);
-  
+}, DEBOUNCE_DELAY);
+
 debounce_fun();
 
 function createMarkup(data) {
@@ -44,17 +44,17 @@ function createMarkup(data) {
       'Too many matches found. Please enter a more specific name.'
     );
     return '';
-  } else if(data.length > 2 && data.length < 10 ){
+  } else if (data.length > 2 && data.length < 10) {
     return data
-    .map(
-      ({ flags, name }) =>
-        `<li class="country-short">
+      .map(
+        ({ flags, name }) =>
+          `<li class="country-short">
     <img class="flag" src="${flags.svg}" alt="${name.official}"/>
     <p>${name.official}<p>
     </li>`
-    )
-    .join('');
-  } else if (data.length === 1){
+      )
+      .join('');
+  } else if (data.length === 1) {
     return data
       .map(
         ({ capital, flags, languages, name, population }) =>

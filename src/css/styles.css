@@ -19,21 +19,21 @@ body {
   margin-bottom: 16px;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.country-full{
+.country-full {
   height: 200px;
   margin-bottom: 70px;
 }
 
-.country-full-first-line{
+.country-full-first-line {
   display: flex;
   align-items: center;
 }
 
-.country-short{
+.country-short {
   display: flex;
   align-content: center;
   align-items: center;
@@ -41,11 +41,11 @@ li{
   margin-bottom: 20px;
 }
 
-.flag{
+.flag {
   width: 40px;
   margin-right: 10px;
 }
 
-.text-bold{
+.text-bold {
   font-weight: 700;
 }
