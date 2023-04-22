@@ -11,15 +11,14 @@ const BASE_URL = `https://restcountries.com/v3.1`;
 const params = 'fields=name,capital,population,flags,languages';
 
 function fetchCountries(name) {
-    const URL = `${BASE_URL}/name/${name}?${params}`;
-    return fetch(URL)
-    .then(resp => {
-        if (!resp.ok) {
-          // resp.ok === false
-          throw new Error(resp.statusText);
-        }
-        return resp.json();
-      });
+  const URL = `${BASE_URL}/name/${name}?${params}`;
+  return fetch(URL).then(resp => {
+    if (!resp.ok) {
+      // resp.ok === false
+      throw new Error(resp.statusText);
     }
+    return resp.json();
+  });
+}
 
-export{fetchCountries};
+export { fetchCountries };
