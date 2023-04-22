@@ -24,6 +24,9 @@ function onInput(evt) {
 }
 
 function createMarkup(data) {
+  if (data.length > 10) {
+    Notiflix.Notify.warning("Too many matches found. Please enter a more specific name.");
+  }
   return data.map(
     ({ capital, flags, languages, name, population })=>
     `<li>
