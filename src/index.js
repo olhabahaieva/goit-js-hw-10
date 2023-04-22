@@ -6,7 +6,7 @@ const DEBOUNCE_DELAY = 300;
 // Default JS ends
 
 //Input selector
-const inputElement = document.querySelector('input');
+const inputElement = document.querySelector('input#search-box');
 const list = document.querySelector('.country-list');
 
 //Event listener for the input
