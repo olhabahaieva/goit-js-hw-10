@@ -15,7 +15,7 @@ inputElement.addEventListener('input', onInput);
 
 function onInput(evt) {
   evt.preventDefault();
-  const name = evt.currentTarget.value;
+  const name = evt.currentTarget.value.trim();
   debounce_fun();
 
   fetchCountries(name)
