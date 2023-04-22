@@ -19,6 +19,11 @@ function onInput(evt) {
   const name = evt.target.value.trim();
   debounce_fun();
 
+  if(name === ''){
+    list.innerHTML = '';
+    return;
+  }
+
   fetchCountries(name)
     .then(data => (list.innerHTML = createMarkup(data)))
     .catch(err =>
