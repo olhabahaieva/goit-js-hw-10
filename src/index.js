@@ -15,7 +15,6 @@ inputElement.addEventListener('input', onInput);
 function onInput(evt) {
   evt.preventDefault();
   const name = evt.currentTarget.value;
-  // const END_POINT = `/name/${name}`;
 
   fetchCountries(name)
     .then(data => (list.innerHTML = createMarkup(data)))
