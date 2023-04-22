@@ -21,4 +21,6 @@ body {
 
 li{
   list-style: none;
+  height: 200px;
+  margin-bottom: 70px;
 }
