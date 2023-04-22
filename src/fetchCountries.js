@@ -8,7 +8,7 @@
 const BASE_URL = `https://restcountries.com/v3.1`;
 
 //Params
-const params = 'fields=name,capital,official,population,flags,languages';
+const params = 'fields=name,capital,population,flags,languages';
 
 function fetchCountries(name) {
     const URL = `${BASE_URL}/name/${name}?${params}`;
