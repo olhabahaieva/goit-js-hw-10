@@ -1,5 +1,6 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
+import _ from 'lodash';
 import { fetchCountries } from './fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
