@@ -16,6 +16,7 @@ inputElement.addEventListener('input', onInput);
 function onInput(evt) {
   evt.preventDefault();
   const name = evt.currentTarget.value;
+  debounce_fun();
 
   fetchCountries(name)
     .then(data => (list.innerHTML = createMarkup(data)))
@@ -23,6 +24,13 @@ function onInput(evt) {
       Notiflix.Notify.failure('Oops, there is no country with that name')
     );
 }
+
+// Using _.debounce() method with its parameters
+var debounce_fun = _.debounce(function () {
+  // console.log('Function debounced after 1000ms!');
+  }, DEBOUNCE_DELAY);
+  
+debounce_fun();
 
 function createMarkup(data) {
   if (data.length > 10) {
