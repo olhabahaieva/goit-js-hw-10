@@ -27,7 +27,8 @@ function onInput(evt) {
   fetchCountries(name)
   .then(data => {
     const languages = Object.values(data[0].languages);
-    const languageNames = languages.map(language => language.name);
+    const languageNames = languages.map(language => language.key);
+    console.log(languageNames);
     list.innerHTML = createMarkup(data);
   })
   .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
@@ -40,7 +41,7 @@ var debounce_fun = _.debounce(function () {
 
 debounce_fun();
 
-function createMarkup(data) {
+function createMarkup(data, languageNames) {
   if (data.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
