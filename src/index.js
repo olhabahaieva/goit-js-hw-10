@@ -23,11 +23,7 @@ function onInput(evt) {
   }
 
   fetchCountries(name)
-  .then(data => {
-    const languages = Object.values(data[0].languages);
-    const languageNames = languages.map(language => language.name);
-    list.innerHTML = createMarkup(data, languageNames);
-  })
+  .then(data => {list.innerHTML = createMarkup(data)})
   .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
 
