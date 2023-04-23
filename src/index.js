@@ -25,10 +25,12 @@ function onInput(evt) {
   }
 
   fetchCountries(name)
-    .then(data => (list.innerHTML = createMarkup(data)))
-    .catch(err =>
-      Notiflix.Notify.failure('Oops, there is no country with that name')
-    );
+  .then(data => {
+    const languages = Object.values(data[0].languages);
+    const languageNames = languages.map(language => language.name);
+    list.innerHTML = createMarkup(data);
+  })
+  .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
 
 // Using _.debounce() method with its parameters
@@ -57,7 +59,7 @@ function createMarkup(data) {
   } else if (data.length === 1) {
     return data
       .map(
-        ({ capital, flags, languages, name, population }) =>
+        ({ capital, flags, languageNames, name, population }) =>
           `<li class="country-full">
       <div class="country-full-first-line">
       <img class="flag" src="${flags.svg}" alt="${name.official}"/>
@@ -65,7 +67,7 @@ function createMarkup(data) {
       </div>
       <p><span class="text-bold">Capital:</span> ${capital}</p>
       <p><span class="text-bold">Population:</span> ${population}</p>
-      <p><span class="text-bold">Languages:</span> ${languages}</p>
+      <p><span class="text-bold">Languages:</span> ${languageNames}</p>
       </li>`
       )
       .join('');
