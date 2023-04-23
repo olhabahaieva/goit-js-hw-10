@@ -1,10 +1,9 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
-import _ from 'lodash';
+import debounce from 'lodash.debounce';
 import { fetchCountries } from './fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
-const onInputDebounced = _.debounce(onInput, DEBOUNCE_DELAY);
 // Default JS ends
 
 //Input selector
@@ -12,12 +11,11 @@ const inputElement = document.querySelector('input#search-box');
 const list = document.querySelector('.country-list');
 
 //Event listener for the input
-inputElement.addEventListener('input', onInputDebounced);
+inputElement.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(evt) {
   evt.preventDefault();
   const name = evt.target.value.trim();
-  debounce_fun();
 
   if (name === '') {
     list.innerHTML = '';
@@ -32,13 +30,6 @@ function onInput(evt) {
   })
   .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
-
-// Using _.debounce() method with its parameters
-var debounce_fun = _.debounce(function () {
-  // console.log('Function debounced after 1000ms!');
-}, DEBOUNCE_DELAY);
-
-debounce_fun();
 
 function createMarkup(data, languageNames) {
   if (data.length > 10) {
