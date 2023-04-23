@@ -27,7 +27,7 @@ function onInput(evt) {
   .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
 
-function createMarkup(data, languageNames) {
+function createMarkup(data) {
   if (data.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
@@ -46,7 +46,7 @@ function createMarkup(data, languageNames) {
   } else if (data.length === 1) {
     return data
       .map(
-        ({ capital, flags, languageNames, name, population }) =>
+        ({ capital, flags, languages, name, population }) =>
           `<li class="country-full">
       <div class="country-full-first-line">
       <img class="flag" src="${flags.svg}" alt="${name.official}"/>
@@ -54,7 +54,7 @@ function createMarkup(data, languageNames) {
       </div>
       <p><span class="text-bold">Capital:</span> ${capital}</p>
       <p><span class="text-bold">Population:</span> ${population}</p>
-      <p><span class="text-bold">Languages:</span> ${languageNames}</p>
+      <p><span class="text-bold">Languages:</span> ${Object.values(languages).join(', ')}</p>
       </li>`
       )
       .join('');
