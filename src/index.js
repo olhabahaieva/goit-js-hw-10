@@ -28,8 +28,7 @@ function onInput(evt) {
   .then(data => {
     const languages = Object.values(data[0].languages);
     const languageNames = languages.map(language => language.key);
-    console.log(languageNames);
-    list.innerHTML = createMarkup(data);
+    list.innerHTML = createMarkup(data, languageNames);
   })
   .catch(err => Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
